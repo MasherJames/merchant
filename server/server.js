@@ -5,6 +5,8 @@ import http from 'http';
 import dotenv from 'dotenv';
 import { ApolloServer } from 'apollo-server-express';
 import schema from './schema';
+import resolvers from './resolvers';
+import models from './database/models';
 
 dotenv.config();
 
@@ -13,7 +15,11 @@ app.use(bodyParser.json())
 app.use(morgan('dev'));
 
 const server = new ApolloServer({
-    typeDefs: schema
+    typeDefs: schema,
+    resolvers,
+    context: {
+        models
+    }
 });
 
 server.applyMiddleware({ app, path: '/graphql' });
