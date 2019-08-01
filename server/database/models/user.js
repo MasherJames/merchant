@@ -13,12 +13,9 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        role: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        isadmin: {
+        is_admin: {
             type: DataTypes.BOOLEAN,
+            defaultValue: false,
             allowNull: false
         }
     }, {});

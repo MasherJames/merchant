@@ -17,10 +17,7 @@ module.exports = {
       password: {
         type: Sequelize.STRING
       },
-      role: {
-        type: Sequelize.STRING
-      },
-      isadmin: {
+      is_admin: {
         type: Sequelize.BOOLEAN
       },
       createdAt: {

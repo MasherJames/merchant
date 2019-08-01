@@ -1,16 +1,14 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
-import user from '../database/models/user'
+import user from '../database/models';
 
 const User = user.User;
-
 export default class AuthController {
     static async register(newUserData) {
-        const { email, username, password } = newUser;
+        const { email, username, password } = newUserData.userRegisterData;
         const salt = bcrypt.genSaltSync(10);
         const hash = bcrypt.hashSync(password, salt);
-
         const newUser = await User.create({
             email,
             username,

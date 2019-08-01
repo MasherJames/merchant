@@ -51,7 +51,7 @@ const schema = gql `
 
  type Mutation {
    addProduct(productData: ProductInput!): Product!
-   addUser(userData: UserInput!): User!
+   addUser(userRegisterData: UserInput!): User!
    addOrder(productId: ID!): Order!
  }
 `
