@@ -28,6 +28,7 @@ const schema = gql `
 
  type UserData {
    userId: ID!
+   email: String!
    token: String!
  }
 
@@ -46,13 +47,13 @@ const schema = gql `
  type Query {
     products: [Product!]!
     orders: [Order!]!
-    login(email: String!, password: String!): UserData!
  }
 
  type Mutation {
    addProduct(productData: ProductInput!): Product!
-   addUser(userRegisterData: UserInput!): User!
+   addUser(userInput: UserInput!): User!
    addOrder(productId: ID!): Order!
+   login(email: String!, password: String!): UserData!
  }
 `
 export default schema;
