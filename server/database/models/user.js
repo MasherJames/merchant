@@ -1,5 +1,5 @@
 'use strict';
-module.exports = (sequelize, DataTypes) => {
+export default (sequelize, DataTypes) => {
     const User = sequelize.define('User', {
         username: {
             type: DataTypes.STRING,
@@ -20,7 +20,11 @@ module.exports = (sequelize, DataTypes) => {
         }
     }, {});
     User.associate = function(models) {
-        // associations can be defined here
+        User.hasMany(models.Product, {
+            foreignKey: 'owner',
+            as: 'products',
+            onDelete: 'CASCADE'
+        });
     };
     return User;
 };

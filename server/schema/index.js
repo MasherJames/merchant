@@ -15,6 +15,7 @@ const schema = gql `
    name: String!
    description: String!
    price: Float!
+   quantity: Int!
    owner: User!
  }
 
@@ -22,8 +23,6 @@ const schema = gql `
    id: ID!
    product: Product!
    user: User!
-   createdAt: String!
-   updatedAt: String!
  }
 
  type UserData {
@@ -36,6 +35,7 @@ const schema = gql `
     name: String!
     description: String!
     price: Float!
+    quantity: Int!
  }
 
  input UserInput {
@@ -46,7 +46,9 @@ const schema = gql `
 
  type Query {
     products: [Product!]!
+    product(id: Int!):Product!
     orders: [Order!]!
+    order(id: Int!): Order!
  }
 
  type Mutation {
@@ -54,6 +56,11 @@ const schema = gql `
    addUser(userInput: UserInput!): User!
    addOrder(productId: ID!): Order!
    login(email: String!, password: String!): UserData!
+   updateProduct(id: Int!, productUpdateData: ProductInput!): Product!
+   updateOrder(id: Int!): Order!
+   deleteProduct(id: Int!): Boolean!
+   deleteOrder(id: Int!): Boolean!
+   cancelOrder(id: Int!): Boolean!
  }
 `
 export default schema;

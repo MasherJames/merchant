@@ -47,20 +47,39 @@ const userSchemaLogin = Joi.object().keys({
         .label('Email'),
 });
 
-const propertySchema = Joi.object().keys({
+const productSchema = Joi.object().keys({
+    name: Joi.string()
+        .regex(/^[\d\w ./ \s]{2,}$/)
+        .required()
+        .label('Name')
+        .options({
+            language:{
+                string:{
+                    regex:{
+                        base:'Must be greater than two characters'
+                    }
+                }
+            }
+        }),
+    description: Joi.string()
+        .regex(/^[\d\w ./ \s]{2,}$/)
+        .required()
+        .label('Description')
+        .options({
+            language:{
+                string:{
+                    regex:{
+                        base:'Must be greater than two characters'
+                    }
+                }
+            }
+        }),
     price: Joi.number()
         .min(10)
         .max(100000),
-    name: Joi.string()
-        .alphanum()
-        .min(3)
-        .max(30)
-        .required(),
-    description: Joi.string()
-        .alphanum()
-        .min(3)
-        .max(90)
-        .required()
+    quantity: Joi.number()
+        .min(0)
+        .max(20)
 });
 
-export { userRegisterSchema, userSchemaLogin, propertySchema };
+export { userRegisterSchema, userSchemaLogin, productSchema };

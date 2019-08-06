@@ -8,9 +8,9 @@ import token from '../utils/token';
 const User = user.User;
 export default class AuthController {
     static async register(newUserData) {
-        const { email, username, password } = newUserData.userInput;
+        const { email, username, password } = newUserData;
 
-        await Joi.validate(newUserData.userInput, userRegisterSchema, { abortEarly:false });
+        await Joi.validate(newUserData, userRegisterSchema, { abortEarly:false });
         const existing = await User.findOne({ where: {email} });
 
         if(existing){
