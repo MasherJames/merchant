@@ -79,7 +79,8 @@ const productSchema = Joi.object().keys({
         .max(100000),
     quantity: Joi.number()
         .min(0)
-        .max(20)
+        .max(20),
+    image: Joi.string()
 });
 
 export { userRegisterSchema, userSchemaLogin, productSchema };

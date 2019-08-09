@@ -16,6 +16,7 @@ const schema = gql `
    description: String!
    price: Float!
    quantity: Int!
+   image: String!
    owner: User!
  }
 
@@ -36,6 +37,7 @@ const schema = gql `
     description: String!
     price: Float!
     quantity: Int!
+    image: String!
  }
 
  input UserInput {
