@@ -13,3 +13,8 @@ body {
     font-family: 'Titillium Web', sans-serif;
     box-sizing: border-box;
 }
+
+
+input:focus {
+    border-color: pink !important;
+}

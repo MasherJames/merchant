@@ -1,5 +1,26 @@
 import gql from 'graphql-tag';
 
+
+const REGISTER_USER = gql`
+  mutation AddUser($email: String!, $username: String!, $password: String!) {
+    addUser(userInput: {
+      email: $email,
+      username: $username,
+      password: $password
+    }){
+      id, email, username
+    }
+  }
+`;
+
+const LOGIN_USER = gql`
+  mutation LoginUser($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
+      token
+    }
+  }
+`;
+
 const ADD_PRODUCT = gql`
   mutation AddProduct($name:String!, $description:String!, $price:Float!, $quantity:Int!, $image:String! ) {
     addProduct(name: $name, description: $description, price: $price, quantity: $quantity, image: $image) {
@@ -38,6 +59,6 @@ const GET_PRODUCT_DETEAILS = gql`
   }
 `;
 
-export { ADD_PRODUCT, GET_PRODUCTS, GET_PRODUCT_DETEAILS };
+export { REGISTER_USER, LOGIN_USER, ADD_PRODUCT, GET_PRODUCTS, GET_PRODUCT_DETEAILS };
 
 
