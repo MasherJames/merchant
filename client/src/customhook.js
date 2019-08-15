@@ -20,14 +20,14 @@ export default (actionCallBack, initialState = {}) => {
 };
 
 export const errorHook = err => {
-  let register_errors = [];
+  let errors = [];
   if (err.graphQLErrors[0].message) {
-    register_errors.push(err.graphQLErrors[0].message);
+    errors.push(err.graphQLErrors[0].message);
   }
   const joiErrors = err.graphQLErrors[0].extensions.exception.details;
   if (joiErrors && joiErrors.length > 0) {
-    register_errors = joiErrors.map(err => err.message);
+    errors = joiErrors.map(err => err.message);
   }
 
-  return register_errors;
+  return errors;
 };
