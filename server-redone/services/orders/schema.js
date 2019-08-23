@@ -18,13 +18,5 @@ const schema = gql`
     description: String!
     price: Float!
   }
-
-  extend type Query {
-    login(email: String!, password: String!): UserData!
-  }
-
-  extend type Mutation {
-    addUser(userInput: UserInput!): User!
-  }
 `;
 export default schema;
