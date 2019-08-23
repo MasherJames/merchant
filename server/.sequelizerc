@@ -8,3 +8,6 @@ module.exports = {
   'seeders-path': path.resolve('database', 'seeders'),
   'migrations-path': path.resolve('database', 'migrations')
 }
+
+
+yarn add @babel/cli @babel/core @babel/node @babel/preset-env @babel/register apollo-server-express bcryptjs body-parser cors dotenv express graphql joi jsonwebtoken morgan nodemon pg sequelize sequelize-cli

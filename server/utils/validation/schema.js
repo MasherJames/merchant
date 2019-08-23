@@ -19,7 +19,7 @@ const userRegisterSchema = Joi.object().keys({
             language:{
                 string:{
                     regex:{
-                        base:'Must have atleast one lowecase, uppercase and digit'
+                        base:'Must have atleast one lowecase, uppercase, digit and 8 digits minimum'
                     }
                 }
             }
@@ -40,7 +40,7 @@ const userSchemaLogin = Joi.object().keys({
                 }
             }
         }),
-        
+
     email: Joi.string()
         .email({ minDomainAtoms: 2 })
         .required()
